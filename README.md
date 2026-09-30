@@ -55,6 +55,8 @@ x³ − 2x + 2):
 Resolve um sistema 3×3 por eliminação de Gauss e retrossubstituição e gera um GIF que
 explica cada passo:
 
+![Animação da eliminação de Gauss](animacoes/eliminacao_gauss.gif)
+
 - **Eliminação:** destaca o pivô de cada coluna, calcula o multiplicador
   m<sub>ik</sub> = a<sub>ik</sub>/a<sub>kk</sub> e anima a operação L<sub>i</sub> ← L<sub>i</sub> − m<sub>ik</sub>·L<sub>k</sub>,
   com a conta de cada elemento.
