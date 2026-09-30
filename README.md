@@ -10,6 +10,8 @@ resultado.
 | --- | --- | --- |
 | [I — Erros numéricos em biofluidodinâmica](Atividade_1.ipynb) | truncamento × arredondamento, propagação de erro, float32 × float64 | [![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Z4nata/CalculoNumerico/blob/main/Atividade_1.ipynb) |
 | [II — Estabilidade numérica e overflow em CFD](Atividade_2.ipynb) | critério de estabilidade, overflow, refinamento de malha | [![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Z4nata/CalculoNumerico/blob/main/Atividade_2.ipynb) |
+| [III — Zeros de funções](atividade_3.ipynb) | bisseção, Newton e secante, critérios de parada e casos de falha | [![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Z4nata/CalculoNumerico/blob/main/atividade_3.ipynb) |
+| [IV — Animação da eliminação de Gauss](Atividade_4.ipynb) | eliminação sem pivoteamento, multiplicadores, retrossubstituição | [![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Z4nata/CalculoNumerico/blob/main/Atividade_4.ipynb) |
 
 ## Atividade I — Erros numéricos em biofluidodinâmica
 
@@ -35,6 +37,31 @@ Simulação do perfil de velocidade de um fluido entre placas (difusão explíci
   estável; o notebook encontra um novo Δt que funciona.
 - **Verificação:** compara o perfil final com a solução estacionária analítica, com erro
   máximo da ordem de 10⁻⁹ m/s.
+
+## Atividade III — Zeros de funções
+
+Bisseção, Newton e secante aplicados a quatro funções (x² − 2, x³ − x − 2, e⁻ˣ − x e
+x³ − 2x + 2):
+
+- **Implementação:** critério de parada com |x<sub>k+1</sub> − x<sub>k</sub>| e
+  |f(x<sub>k+1</sub>)| abaixo da tolerância e tratamento das falhas de cada método
+  (f(a)·f(b) > 0, f'(x) ≈ 0, denominador nulo na secante, limite de iterações).
+- **Tabela:** raiz, resíduo final e número de iterações de cada método em cada função.
+- **Animações:** as iterações da bisseção, de Newton e da secante desenhadas sobre o gráfico
+  da função.
+
+## Atividade IV — Animação da eliminação de Gauss
+
+Resolve um sistema 3×3 por eliminação de Gauss e retrossubstituição e gera um GIF que
+explica cada passo:
+
+- **Eliminação:** destaca o pivô de cada coluna, calcula o multiplicador
+  m<sub>ik</sub> = a<sub>ik</sub>/a<sub>kk</sub> e anima a operação L<sub>i</sub> ← L<sub>i</sub> − m<sub>ik</sub>·L<sub>k</sub>,
+  com a conta de cada elemento.
+- **Retrossubstituição:** resolve o sistema triangular de baixo para cima e preenche o vetor
+  solução.
+- **Verificação:** confere a solução no sistema original e compara com `numpy.linalg.solve`.
+- Para animar outro sistema, basta trocar `A` e `b` no início do notebook.
 
 ## Como rodar
 
