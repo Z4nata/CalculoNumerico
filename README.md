@@ -12,6 +12,7 @@ resultado.
 | [II — Estabilidade numérica e overflow em CFD](Atividade_2.ipynb) | critério de estabilidade, overflow, refinamento de malha | [![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Z4nata/CalculoNumerico/blob/main/Atividade_2.ipynb) |
 | [III — Zeros de funções](atividade_3.ipynb) | bisseção, Newton e secante, critérios de parada e casos de falha | [![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Z4nata/CalculoNumerico/blob/main/atividade_3.ipynb) |
 | [IV — Animação da eliminação de Gauss](Atividade_4.ipynb) | eliminação sem pivoteamento, multiplicadores, retrossubstituição | [![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Z4nata/CalculoNumerico/blob/main/Atividade_4.ipynb) |
+| [V — Sistemas lineares](Atividade_5.ipynb) | forma Ax = b, eliminação de Gauss, classificação de sistemas, balanço térmico | [![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Z4nata/CalculoNumerico/blob/main/Atividade_5.ipynb) |
 
 ## Atividade I — Erros numéricos em biofluidodinâmica
 
@@ -64,6 +65,19 @@ explica cada passo:
   solução.
 - **Verificação:** confere a solução no sistema original e compara com `numpy.linalg.solve`.
 - Para animar outro sistema, basta trocar `A` e `b` no início do notebook.
+
+## Atividade V — Sistemas lineares
+
+Lista de exercícios resolvida à mão e em Python, com teoria e dicas da linguagem em cada passo:
+
+- **Forma matricial:** monta A, x e b de sistemas 2×2 e 3×3.
+- **Eliminação de Gauss manual:** matriz aumentada em cada etapa, multiplicadores e
+  retrossubstituição (solução x = 2, y = 3, z = −1).
+- **Número de soluções:** classifica sistemas como única, infinitas ou nenhuma solução pela
+  matriz escalonada e pelo posto (Rouché–Capelli).
+- **Implementação:** função `eliminacao_gauss` sem pivoteamento, comparada com
+  `numpy.linalg.solve`, e um exemplo de pivô nulo mostrando a limitação do método.
+- **Balanço térmico:** sistema tridiagonal diagonalmente dominante (T₁ = T₂ = T₃ = 5).
 
 ## Como rodar
 
