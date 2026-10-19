@@ -13,6 +13,7 @@ resultado.
 | [III — Zeros de funções](atividade_3.ipynb) | bisseção, Newton e secante, critérios de parada e casos de falha | [![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Z4nata/CalculoNumerico/blob/main/atividade_3.ipynb) |
 | [IV — Animação da eliminação de Gauss](Atividade_4.ipynb) | eliminação sem pivoteamento, multiplicadores, retrossubstituição | [![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Z4nata/CalculoNumerico/blob/main/Atividade_4.ipynb) |
 | [V — Sistemas lineares](Atividade_5.ipynb) | forma Ax = b, eliminação de Gauss, classificação de sistemas, balanço térmico | [![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Z4nata/CalculoNumerico/blob/main/Atividade_5.ipynb) |
+| [VI — Método de Gauss–Seidel](Atividade_6.ipynb) | dominância diagonal, iterações de Gauss–Seidel, critério de parada, convergência | [![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Z4nata/CalculoNumerico/blob/main/Atividade_6.ipynb) |
 
 ## Atividade I — Erros numéricos em biofluidodinâmica
 
@@ -78,6 +79,22 @@ Lista de exercícios resolvida à mão e em Python, com teoria e dicas da lingua
 - **Implementação:** função `eliminacao_gauss` sem pivoteamento, comparada com
   `numpy.linalg.solve`, e um exemplo de pivô nulo mostrando a limitação do método.
 - **Balanço térmico:** sistema tridiagonal diagonalmente dominante (T₁ = T₂ = T₃ = 5).
+
+## Atividade VI — Método de Gauss–Seidel
+
+Lista de exercícios resolvida à mão e em Python para o sistema
+10x − y + 2z = 6, −x + 11y − z = 22, 2x − y + 10z = −10
+(resolução completa também em [PDF](Atividade_6.pdf)):
+
+- **Convergência:** verifica que A é estritamente diagonalmente dominante por linhas, condição
+  suficiente para Gauss–Seidel convergir a partir de qualquer x⁽⁰⁾.
+- **Fórmulas e iterações à mão:** isola uma incógnita por equação, indica quais valores já
+  atualizados entram em cada fórmula e calcula as três primeiras iterações a partir de (0, 0, 0).
+- **Implementação:** função `gauss_seidel` com critério de parada
+  ‖x⁽ᵏ⁾ − x⁽ᵏ⁻¹⁾‖<sub>∞</sub> < 10⁻⁵; converge em 6 iterações para (1, 2, −1), conferido com
+  `numpy.linalg.solve`.
+- **Tabela e gráficos:** x⁽ᵏ⁾, y⁽ᵏ⁾ e z⁽ᵏ⁾ a cada iteração e o erro entre iterações em escala
+  logarítmica, que cai entre uma e duas ordens de grandeza por iteração.
 
 ## Como rodar
 
