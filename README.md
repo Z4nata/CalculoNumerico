@@ -14,6 +14,7 @@ resultado.
 | [IV — Animação da eliminação de Gauss](Atividade_4.ipynb) | eliminação sem pivoteamento, multiplicadores, retrossubstituição | [![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Z4nata/CalculoNumerico/blob/main/Atividade_4.ipynb) |
 | [V — Sistemas lineares](Atividade_5.ipynb) | forma Ax = b, eliminação de Gauss, classificação de sistemas, balanço térmico | [![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Z4nata/CalculoNumerico/blob/main/Atividade_5.ipynb) |
 | [VI — Método de Gauss–Seidel](Atividade_6.ipynb) | dominância diagonal, iterações de Gauss–Seidel, critério de parada, convergência | [![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Z4nata/CalculoNumerico/blob/main/Atividade_6.ipynb) |
+| [VII — Interpolação polinomial](Atividade_7.ipynb) | polinômio interpolador, interpolação × extrapolação, fenômeno de Runge, nós de Chebyshev e splines | [![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Z4nata/CalculoNumerico/blob/main/Atividade_7.ipynb) |
 
 ## Atividade I — Erros numéricos em biofluidodinâmica
 
@@ -96,6 +97,26 @@ Lista de exercícios resolvida à mão e em Python para o sistema
 - **Tabela e gráficos:** x⁽ᵏ⁾, y⁽ᵏ⁾ e z⁽ᵏ⁾ a cada iteração e o erro entre iterações em escala
   logarítmica, que cai entre uma e duas ordens de grandeza por iteração.
 
+## Atividade VII — Interpolação polinomial
+
+Atividade guiada da disciplina, com todas as perguntas respondidas e complementos que
+conferem as contas:
+
+- **Polinômio interpolador:** constrói o polinômio que passa por (−2, 9), (−1, 4), (0, 1) e
+  (1, 0), confere P(x<sub>i</sub>) = y<sub>i</sub> e mostra que o grau é 2, P(x) = (x − 1)²,
+  com a tabela de diferenças divididas feita à mão.
+- **Interpolação × extrapolação:** classifica cada valor consultado e mostra por que, fora do
+  intervalo dos nós, a curva não é sustentada pelos dados.
+- **Comparação de ferramentas:** o mesmo polinômio no NumPy, no WolframAlpha e no GeoGebra,
+  com prints. A forma muda (potências, Newton, fatorada); o polinômio e os valores, não.
+- **Sensibilidade aos dados:** alterar uma única medição muda a curva inteira; a diferença é
+  exatamente Δ·L₂(x), o polinômio de Lagrange do nó alterado.
+- **Fenômeno de Runge:** com nós igualmente espaçados, o erro máximo sobe de ≈0,44 (5 nós)
+  para ≈60 (21 nós); nós de Chebyshev e spline cúbica derrubam o erro para a ordem de 10⁻² e
+  10⁻³.
+- **Interpolação × regressão:** reta de mínimos quadrados para os dados de medição e por que
+  passar por todos os pontos não prova que eles não têm ruído.
+
 ## Como rodar
 
 Clique em **Abrir no Colab** na tabela acima: roda no navegador, sem instalar nada.
@@ -103,6 +124,6 @@ Clique em **Abrir no Colab** na tabela acima: roda no navegador, sem instalar na
 Para rodar localmente:
 
 ```bash
-pip install numpy pandas matplotlib pillow jupyter
+pip install numpy pandas matplotlib pillow scipy jupyter
 jupyter notebook
 ```
