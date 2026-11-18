@@ -15,6 +15,7 @@ resultado.
 | [V — Sistemas lineares](Atividade_5.ipynb) | forma Ax = b, eliminação de Gauss, classificação de sistemas, balanço térmico | [![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Z4nata/CalculoNumerico/blob/main/Atividade_5.ipynb) |
 | [VI — Método de Gauss–Seidel](Atividade_6.ipynb) | dominância diagonal, iterações de Gauss–Seidel, critério de parada, convergência | [![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Z4nata/CalculoNumerico/blob/main/Atividade_6.ipynb) |
 | [VII — Interpolação polinomial](Atividade_7.ipynb) | polinômio interpolador, interpolação × extrapolação, fenômeno de Runge, nós de Chebyshev e splines | [![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Z4nata/CalculoNumerico/blob/main/Atividade_7.ipynb) |
+| [VIII — Erros em métodos de interpolação](Atividade_8.ipynb) | Lagrange × splines, nós de Chebyshev, constante de Lebesgue, sensores com ruído | [![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Z4nata/CalculoNumerico/blob/main/Atividade_8.ipynb) |
 
 ## Atividade I — Erros numéricos em biofluidodinâmica
 
@@ -116,6 +117,26 @@ conferem as contas:
   10⁻³.
 - **Interpolação × regressão:** reta de mínimos quadrados para os dados de medição e por que
   passar por todos os pontos não prova que eles não têm ruído.
+
+## Atividade VIII — Erros em métodos de interpolação
+
+Tarefa investigativa: reconstruir a temperatura de uma barra aquecida (L = 6 m, com geração
+interna de calor) a partir de sensores, usando o perfil analítico como referência para medir
+o erro de cada método:
+
+- **Dados exatos:** com 7 sensores, Lagrange global (E<sub>max</sub> ≈ 8,5·10⁻⁵ °C), spline
+  cúbica natural (≈ 5,1·10⁻⁴), quadrática (≈ 0,024) e linear (≈ 0,082), conferidos com as
+  cotas teóricas. A condição natural S'' = 0 coincide com a física, porque a fonte é nula
+  nas pontas.
+- **Posição dos nós:** Chebyshev-Lobatto reduz o erro de 1,9 a 140 vezes (N = 5 a 17); sem
+  fenômeno de Runge, porque o perfil é uma reta mais um seno.
+- **N de 4 a 40:** nenhum método vence sempre. A spline ganha com poucos nós, Chebyshev chega
+  ao arredondamento em N = 15 e o Lagrange equiespaçado volta a piorar, explicado pela
+  constante de Lebesgue. Inclui tempos de construção e avaliação.
+- **Sensores com ruído:** Monte Carlo com σ = 0,05 °C. Interpoladores copiam o ruído, o
+  Lagrange equiespaçado o amplifica e só regressão e spline de suavização ficam abaixo de σ.
+  Também compara interpolação e extrapolação perto das pontas e fecha com uma recomendação
+  técnica.
 
 ## Como rodar
 
