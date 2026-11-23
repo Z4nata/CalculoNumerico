@@ -16,6 +16,7 @@ resultado.
 | [VI — Método de Gauss–Seidel](Atividade_6.ipynb) | dominância diagonal, iterações de Gauss–Seidel, critério de parada, convergência | [![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Z4nata/CalculoNumerico/blob/main/Atividade_6.ipynb) |
 | [VII — Interpolação polinomial](Atividade_7.ipynb) | polinômio interpolador, interpolação × extrapolação, fenômeno de Runge, nós de Chebyshev e splines | [![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Z4nata/CalculoNumerico/blob/main/Atividade_7.ipynb) |
 | [VIII — Erros em métodos de interpolação](Atividade_8.ipynb) | Lagrange × splines, nós de Chebyshev, constante de Lebesgue, sensores com ruído | [![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Z4nata/CalculoNumerico/blob/main/Atividade_8.ipynb) |
+| [IX — Integração numérica](Atividade_9.ipynb) | ponto médio, trapézios e Simpson, ordem de convergência, erro × custo | [![Abrir no Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Z4nata/CalculoNumerico/blob/main/Atividade_9.ipynb) |
 
 ## Atividade I — Erros numéricos em biofluidodinâmica
 
@@ -137,6 +138,26 @@ o erro de cada método:
   Lagrange equiespaçado o amplifica e só regressão e spline de suavização ficam abaixo de σ.
   Também compara interpolação e extrapolação perto das pontas e fecha com uma recomendação
   técnica.
+
+## Atividade IX — Integração numérica
+
+Atividade guiada da disciplina: integrar duas senoides, sin x e sin(5x) em [0, π] (integrais
+exatas 2 e 2/5), com as regras compostas do ponto médio, dos trapézios e de Simpson:
+
+- **Integral exata à mão:** substituição u = 5x e leitura como área com sinal (três
+  meias-ondas positivas e duas negativas).
+- **Aproximações e erros:** n = 2, 4, 8 e 16, com tabela de erros absolutos e gráfico
+  log-log. Com n = 2 a malha não distingue sin(5x) de sin x, e trapézios e Simpson dão os
+  mesmos valores para as duas.
+- **Ordem de convergência:** em sin x as ordens observadas chegam a 2 (ponto médio e
+  trapézios) e 4 (Simpson); em sin(5x), só a partir de n = 8, quando a malha passa a
+  enxergar a oscilação.
+- **Erro previsto × medido:** o termo dominante do erro, calculado com f'(b) − f'(a) e
+  f'''(b) − f'''(a), explica por que E<sub>M</sub> ≈ −E<sub>T</sub>/2 e por que os erros de
+  sin(5x) são 5 vezes (ordem 2) e 125 vezes (Simpson) maiores.
+- **Eficiência:** para erro 10⁻⁶ em sin x, Simpson usa 35 avaliações de f contra 1284 dos
+  trapézios; a identidade S<sub>2m</sub> = (T<sub>m</sub> + 2M<sub>m</sub>)/3 mostra como ele
+  cancela o erro de ordem h².
 
 ## Como rodar
 
